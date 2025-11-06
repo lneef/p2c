@@ -49,12 +49,4 @@ make       # Does all of the above
 ./query data-generator/output 3
 ```
 
-The current implementation includes a sample query equivalent to:
-
-```sql
-SELECT o_orderstatus, count(*), min(o_totalprice), sum(o_totalprice)
-FROM orders  
-WHERE o_orderdate < '1995-03-15' AND o_orderpriority = '1-URGENT'
-GROUP BY o_orderstatus
-ORDER BY count(*)
-```
+The current implementation includes a sample query equivalent to TPC-H query 5.
