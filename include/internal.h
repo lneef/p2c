@@ -1,7 +1,7 @@
 #pragma once
 #include "IR/Binop.h"
 #include "IR/Expression.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "operators/Aggregation.h"
 #include "operators/Map.h"
 #include "operators/Operations.h"

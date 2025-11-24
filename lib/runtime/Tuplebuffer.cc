@@ -1,8 +1,8 @@
 
 #include "IR/Defs.h"
 #include "IR/Types.h"
-#include "internal/basetypes.h"
-#include "runtime/tuplebuffer.h"
+#include "internal/BaseTypes.h"
+#include "runtime/Tuplebuffer.h"
 
 #include <llvm/ADT/Twine.h>
 #include <llvm/IR/DerivedTypes.h>

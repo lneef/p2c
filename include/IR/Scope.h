@@ -1,4 +1,8 @@
 #pragma once
+
+#include "IR/Defs.h"
+#include "operators/Iu.h"
+
 #include <algorithm>
 #include <llvm/ADT/DenseMap.h>
 #include <llvm/ADT/SmallVector.h>
@@ -7,8 +11,6 @@
 #include <memory>
 #include <span>
 
-#include "IR/Defs.h"
-#include "operators/Iu.h"
 namespace p2cllvm {
 class Builder;
 using LoopInfo = std::pair<BasicBlockRef, ValueRef<llvm::PHINode>>;    

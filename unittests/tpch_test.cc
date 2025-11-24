@@ -1,8 +1,6 @@
+#include "internal/Tpch.h"
+
 #include <gtest/gtest.h>
-
-#include "internal/tpch.h"
-
-
 
 TEST(TPCH, PART_READ_CORRECTLY) {
   const std::string dir{"../../data-generator/output"};

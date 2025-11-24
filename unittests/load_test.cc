@@ -1,13 +1,12 @@
+#include "internal/Tpch.h"
+#include "internal/BaseTypes.h"
+#include "internal/File.h"
+#include "runtime/Runtime.h"
+
 #include <gtest/gtest.h>
 #include <string>
 #include <string_view>
 #include <unordered_set>
-
-#include "internal/tpch.h"
-#include "internal/basetypes.h"
-#include "internal/File.h"
-#include "runtime/Runtime.h"
-
 
 TEST(LOAD_STRING, REGIONS_READ_CORRECTLY){
     const std::string dir{"../../data-generator/output/region"};

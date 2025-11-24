@@ -1,10 +1,11 @@
 #pragma once
+#include "internal/BaseTypes.h"
+#include "IR/Types.h"
+
 #include <algorithm>
 #include <llvm/IR/Type.h>
 #include <llvm/IR/Value.h>
 
-#include "internal/basetypes.h"
-#include "IR/Types.h"
 namespace p2cllvm {
 struct Type;    
 struct IU {

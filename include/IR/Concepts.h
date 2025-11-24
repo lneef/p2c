@@ -1,5 +1,6 @@
 #pragma once
-#include "internal/basetypes.h"
+
+#include "internal/BaseTypes.h"
 #include "Defs.h"
 
 #include <concepts>

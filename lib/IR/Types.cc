@@ -1,7 +1,7 @@
 #include "IR/Builder.h"
 #include "IR/Types.h"
 #include "IR/Defs.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "runtime/Runtime.h"
 
 #include <cstdint>

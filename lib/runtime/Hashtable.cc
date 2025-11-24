@@ -1,7 +1,7 @@
 #include "IR/Defs.h"
 #include "IR/Types.h"
-#include "internal/basetypes.h"
-#include "runtime/hashtables.h"
+#include "internal/BaseTypes.h"
+#include "runtime/Hashtables.h"
 #include <llvm/IR/DerivedTypes.h>
 
 namespace p2cllvm {

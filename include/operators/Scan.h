@@ -4,7 +4,7 @@
 #include "IR/ColTypes.h"
 #include "IR/Defs.h"
 #include "IR/Types.h"
-#include "internal/tpch.h"
+#include "internal/Tpch.h"
 #include "Operator.h"
 
 #include <cassert>

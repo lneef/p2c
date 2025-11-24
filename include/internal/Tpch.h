@@ -5,7 +5,8 @@
 #include "IR/Defs.h"
 #include "IR/Types.h"
 #include "File.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
+
 #include <cstdint>
 #include <llvm/IR/DerivedTypes.h>
 #include <llvm/IR/LLVMContext.h>

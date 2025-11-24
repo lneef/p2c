@@ -1,23 +1,25 @@
 #pragma once
 #include "IR/Defs.h"
 #include "operators/OperatorContext.h"
+#include "SymbolManager.h"
+
 #include <cassert>
 #include <concepts>
 #include <cstdint>
+#include <memory>
+#include <string_view>
+#include <utility>
 #include <llvm/ADT/SmallVector.h>
 #include <llvm/IR/DerivedTypes.h>
 #include <llvm/IR/Function.h>
 #include <llvm/IR/LLVMContext.h>
 #include <llvm/IR/Module.h>
 #include <llvm/IR/Type.h>
-#include <memory>
-#include <string_view>
-#include <utility>
 
-#include "SymbolManager.h"
-enum class PipelineType { Scan, Default, Continuation};
 
 namespace p2cllvm {
+
+enum class PipelineType { Scan, Default, Continuation};
 struct TPCH;
 struct Pipeline {
   PipelineType type;

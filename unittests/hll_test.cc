@@ -1,8 +1,8 @@
+#include "internal/Tpch.h"
+#include "runtime/Murmur.h"
+
 #include <gtest/gtest.h>
 #include <string>
-
-#include "internal/tpch.h"
-#include "runtime/Murmur.h"
 
 TEST(HLLTEST, HLL_VAL) {
   std::string dir{"../../data-generator/output"};

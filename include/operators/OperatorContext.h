@@ -3,8 +3,9 @@
 #include "runtime/Runtime.h"
 #include "runtime/ThreadLocal.h"
 #include "runtime/ThreadLocalContext.h"
-#include "runtime/hashtables.h"
-#include "runtime/tuplebuffer.h"
+#include "runtime/Hashtables.h"
+#include "runtime/Tuplebuffer.h"
+
 #include <cstdint>
 #include <string>
 

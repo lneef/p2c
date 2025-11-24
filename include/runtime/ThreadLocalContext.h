@@ -1,8 +1,9 @@
 #pragma once
 
-#include "hashtables.h"
-#include "hyperloglog.h"
-#include "tuplebuffer.h"
+#include "Hashtables.h"
+#include "Hyperloglog.h"
+#include "Tuplebuffer.h"
+
 #include <cstdint>
 #include <queue>
 

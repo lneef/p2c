@@ -14,7 +14,7 @@
 #include "IR/Defs.h"
 #include "IR/Concepts.h"
 #include "IR/Unop.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include <llvm/IR/Value.h>
 #include <llvm/Support/Alignment.h>
 #include <llvm/Support/raw_ostream.h>

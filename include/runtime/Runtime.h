@@ -2,11 +2,11 @@
 
 #include "ThreadLocal.h"
 #include "ThreadLocalContext.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "internal/File.h"
-#include "runtime/hashtables.h"
-#include "runtime/hyperloglog.h"
-#include "runtime/tuplebuffer.h"
+#include "runtime/Hashtables.h"
+#include "runtime/Hyperloglog.h"
+#include "runtime/Tuplebuffer.h"
 
 #include <cstdint>
 #include <thread>

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "IR/Builder.h"
 #include "IR/Defs.h"
 #include "IR/Expression.h"
@@ -10,8 +11,10 @@
 #include "runtime/Runtime.h"
 #include "runtime/ThreadLocalContext.h"
 #include "runtime/TypeInfo.h"
-#include "runtime/hashtables.h"
-#include "runtime/tuplebuffer.h"
+#include "runtime/Hashtables.h"
+#include "runtime/Tuplebuffer.h"
+
+#include <memory>
 #include <cstddef>
 #include <functional>
 #include <llvm/IR/BasicBlock.h>
@@ -20,7 +23,7 @@
 #include <llvm/IR/Instructions.h>
 #include <llvm/IR/Intrinsics.h>
 #include <llvm/IR/Type.h>
-#include <memory>
+
 
 namespace p2cllvm {
 

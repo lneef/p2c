@@ -1,8 +1,9 @@
 #pragma once
 
 #include "IR/Types.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "operators/OperatorContext.h"
+
 #include <cassert>
 #include <charconv>
 #include <cstdlib>

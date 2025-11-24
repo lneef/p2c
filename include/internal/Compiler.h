@@ -1,7 +1,13 @@
 #pragma once
 
+
+#include "IR/Pipeline.h"
+#include "IR/SymbolManager.h"
+
 #include <cassert>
 #include <cstdint>
+#include <memory>
+#include <string_view>
 #include <llvm/ADT/STLExtras.h>
 #include <llvm/ADT/iterator_range.h>
 #include <llvm/Analysis/CGSCCPassManager.h>
@@ -38,11 +44,6 @@
 #include <llvm/Transforms/Scalar/Reassociate.h>
 #include <llvm/Transforms/Scalar/SimplifyCFG.h>
 #include <llvm/ADT/PostOrderIterator.h>
-#include <memory>
-#include <string_view>
-
-#include "IR/Pipeline.h"
-#include "IR/SymbolManager.h"
 
 namespace p2cllvm {
 struct LoadVisitor : public llvm::InstVisitor<LoadVisitor> {

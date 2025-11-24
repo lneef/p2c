@@ -2,10 +2,11 @@
 #include "IR/Pipeline.h"
 #include "internal/Compiler.h"
 #include "internal/QueryScheduler.h"
-#include "internal/tpch.h"
+#include "internal/Tpch.h"
 #include "operators/Driver.h"
 #include "operators/Iu.h"
 #include "operators/Operator.h"
+
 #include <cassert>
 #include <cstdint>
 #include <cstdlib>

@@ -1,13 +1,13 @@
 #pragma once
 
+#include "internal/BaseTypes.h"
+#include "operators/Iu.h"
+
+#include <vector>
 #include <llvm/IR/DerivedTypes.h>
 #include <llvm/IR/LLVMContext.h>
 #include <llvm/IR/Type.h>
 #include <llvm/Support/raw_ostream.h>
-#include <vector>
-
-#include "internal/basetypes.h"
-#include "operators/Iu.h"
 
 namespace p2cllvm {
 using Layout = llvm::DenseMap<IU*, size_t>;

@@ -8,9 +8,13 @@
 #include "operators/OperatorContext.h"
 #include "operators/Operator.h"
 #include "runtime/Runtime.h"
+
 #include <cstddef>
 #include <cstdlib>
 #include <cstring>
+#include <memory>
+#include <utility>
+#include <vector>
 #include <llvm/IR/BasicBlock.h>
 #include <llvm/IR/Constants.h>
 #include <llvm/IR/DerivedTypes.h>
@@ -18,9 +22,6 @@
 #include <llvm/IR/Instructions.h>
 #include <llvm/IR/Type.h>
 #include <llvm/IR/Value.h>
-#include <memory>
-#include <utility>
-#include <vector>
 namespace p2cllvm {
 
 template <typename T, typename C> class SortOp : public Operator {

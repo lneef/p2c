@@ -1,7 +1,9 @@
 #pragma once
+
 #include "IR/Binop.h"
 #include "IR/Unop.h"
 #include "IR/Expression.h"
+
 #include <concepts>
 #include <memory.h>
 #include <memory>

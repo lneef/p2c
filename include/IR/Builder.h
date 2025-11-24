@@ -1,4 +1,15 @@
 #pragma once
+
+#include "Defs.h"
+#include "Pipeline.h"
+#include "Scope.h"
+#include "Tuple.h"
+#include "internal/BaseTypes.h"
+#include "operators/Iu.h"
+#include "runtime/Runtime.h"
+#include "runtime/Hashtables.h"
+#include "runtime/Tuplebuffer.h"
+
 #include <concepts>
 #include <cstdint>
 #include <llvm/ADT/ArrayRef.h>
@@ -21,15 +32,6 @@
 #include <memory>
 #include <type_traits>
 
-#include "Defs.h"
-#include "Pipeline.h"
-#include "Scope.h"
-#include "Tuple.h"
-#include "internal/basetypes.h"
-#include "operators/Iu.h"
-#include "runtime/Runtime.h"
-#include "runtime/hashtables.h"
-#include "runtime/tuplebuffer.h"
 namespace p2cllvm {
 class Operator;
 class Tuple;

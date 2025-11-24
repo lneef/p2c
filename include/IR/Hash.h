@@ -1,5 +1,11 @@
 #pragma once
 
+#include "IR/Builder.h"
+#include "IR/Defs.h"
+#include "IR/Types.h"
+#include "internal/BaseTypes.h"
+#include "runtime/Runtime.h"
+
 #include <cassert>
 #include <cstdint>
 #include <cstdio>
@@ -13,12 +19,6 @@
 #include <llvm/IR/Type.h>
 #include <llvm/IR/Value.h>
 #include <llvm/Support/raw_ostream.h>
-
-#include "IR/Builder.h"
-#include "IR/Defs.h"
-#include "IR/Types.h"
-#include "internal/basetypes.h"
-#include "runtime/Runtime.h"
 
 namespace p2cllvm {
 template <typename T> struct Hasher {

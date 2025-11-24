@@ -1,7 +1,7 @@
 #pragma once
 #include "IR/Pipeline.h"
 #include "internal/Compiler.h"
-#include "internal/tpch.h"
+#include "internal/Tpch.h"
 #include <cstdint>
 #include <llvm/Support/Error.h>
 #include <tuple>

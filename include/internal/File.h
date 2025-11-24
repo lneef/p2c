@@ -1,17 +1,18 @@
 #pragma once
+
+#include "IR/Defs.h"
+#include "IR/Types.h"
+#include "BaseTypes.h"
+
 #include <cstdint>
 #include <fcntl.h>
-#include <llvm/IR/DerivedTypes.h>
-#include <llvm/IR/Type.h>
 #include <stdexcept>
 #include <string>
 #include <string_view>
 #include <sys/mman.h>
 #include <unistd.h>
-
-#include "IR/Defs.h"
-#include "IR/Types.h"
-#include "basetypes.h"
+#include <llvm/IR/DerivedTypes.h>
+#include <llvm/IR/Type.h>
 
 namespace p2cllvm {
 template<typename T> struct ColumnBase{

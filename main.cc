@@ -1,85 +1,89 @@
 #include "internal.h"
-int main(){
-auto orders0 = make_unique<Scan>("orders");
-IU* o_comment_57 = orders0->getIU("o_comment");
-IU* o_clerk_55 = orders0->getIU("o_clerk");
-IU* o_shippriority_56 = orders0->getIU("o_shippriority");
-IU* o_orderdate_53 = orders0->getIU("o_orderdate");
-IU* o_totalprice_52 = orders0->getIU("o_totalprice");
-IU* o_orderstatus_51 = orders0->getIU("o_orderstatus");
-IU* o_orderpriority_54 = orders0->getIU("o_orderpriority");
-IU* o_custkey_50 = orders0->getIU("o_custkey");
-IU* o_orderkey_49 = orders0->getIU("o_orderkey");
-auto lineitem1 = make_unique<Scan>("lineitem");
-IU* l_shipinstruct_35 = lineitem1->getIU("l_shipinstruct");
-IU* l_partkey_23 = lineitem1->getIU("l_partkey");
-IU* l_suppkey_24 = lineitem1->getIU("l_suppkey");
-IU* l_linenumber_25 = lineitem1->getIU("l_linenumber");
-IU* l_quantity_26 = lineitem1->getIU("l_quantity");
-IU* l_extendedprice_27 = lineitem1->getIU("l_extendedprice");
-IU* l_shipmode_36 = lineitem1->getIU("l_shipmode");
-IU* l_orderkey_22 = lineitem1->getIU("l_orderkey");
-IU* l_discount_28 = lineitem1->getIU("l_discount");
-IU* l_returnflag_30 = lineitem1->getIU("l_returnflag");
-IU* l_comment_37 = lineitem1->getIU("l_comment");
-IU* l_linestatus_31 = lineitem1->getIU("l_linestatus");
-IU* l_tax_29 = lineitem1->getIU("l_tax");
-IU* l_shipdate_32 = lineitem1->getIU("l_shipdate");
-IU* l_commitdate_33 = lineitem1->getIU("l_commitdate");
-IU* l_receiptdate_34 = lineitem1->getIU("l_receiptdate");
-auto partsupp2 = make_unique<Scan>("partsupp");
-IU* ps_comment_45 = partsupp2->getIU("ps_comment");
-IU* ps_supplycost_44 = partsupp2->getIU("ps_supplycost");
-IU* ps_availqty_43 = partsupp2->getIU("ps_availqty");
-IU* ps_suppkey_42 = partsupp2->getIU("ps_suppkey");
-IU* ps_partkey_41 = partsupp2->getIU("ps_partkey");
-auto part3 = make_unique<Scan>("part");
-IU* p_comment_8 = part3->getIU("p_comment");
-IU* p_retailprice_7 = part3->getIU("p_retailprice");
-IU* p_container_6 = part3->getIU("p_container");
-IU* p_type_4 = part3->getIU("p_type");
-IU* p_brand_3 = part3->getIU("p_brand");
-IU* p_mfgr_2 = part3->getIU("p_mfgr");
-IU* p_size_5 = part3->getIU("p_size");
-IU* p_name_1 = part3->getIU("p_name");
-IU* p_partkey_0 = part3->getIU("p_partkey");
-auto expr1 = make_unique<LikeExp>(make_unique<IUExp>(p_name_1), "%green%");
-auto map1 = make_unique<Map>(std::move(part3), std::move(expr1), "computedIU0", TypeEnum::Bool);
-IU* computedIU0 = map1->getIU("computedIU0");
-auto selIu0 = make_unique<IUExp>(computedIU0);
-auto sel13 = make_unique<Selection>(std::move(map1), make_unique<IUExp>(computedIU0));
-auto join4 = make_unique<InnerJoin>(std::move(sel13), std::move(partsupp2), std::vector<IU*>{p_partkey_0}, std::vector<IU*>{ps_partkey_41}, nullptr);
-auto supplier5 = make_unique<Scan>("supplier");
-IU* s_comment_18 = supplier5->getIU("s_comment");
-IU* s_phone_16 = supplier5->getIU("s_phone");
-IU* s_nationkey_15 = supplier5->getIU("s_nationkey");
-IU* s_address_14 = supplier5->getIU("s_address");
-IU* s_acctbal_17 = supplier5->getIU("s_acctbal");
-IU* s_name_13 = supplier5->getIU("s_name");
-IU* s_suppkey_12 = supplier5->getIU("s_suppkey");
-auto nation6 = make_unique<Scan>("nation");
-IU* n_comment_64 = nation6->getIU("n_comment");
-IU* n_regionkey_63 = nation6->getIU("n_regionkey");
-IU* n_name_62 = nation6->getIU("n_name");
-IU* n_nationkey_61 = nation6->getIU("n_nationkey");
-auto join7 = make_unique<InnerJoin>(std::move(nation6), std::move(supplier5), std::vector<IU*>{n_nationkey_61}, std::vector<IU*>{s_nationkey_15}, nullptr);
-auto join8 = make_unique<InnerJoin>(std::move(join7), std::move(join4), std::vector<IU*>{s_suppkey_12}, std::vector<IU*>{ps_suppkey_42}, nullptr);
-auto join9 = make_unique<InnerJoin>(std::move(join8), std::move(lineitem1), std::vector<IU*>{p_partkey_0, s_suppkey_12}, std::vector<IU*>{l_partkey_23, l_suppkey_24}, nullptr);
-auto join10 = make_unique<InnerJoin>(std::move(join9), std::move(orders0), std::vector<IU*>{l_orderkey_22}, std::vector<IU*>{o_orderkey_49}, nullptr);
-IU* n_name_70 = n_name_62;
-auto expr3 = makeCallExp("date::extractYear", make_unique<IUExp>(o_orderdate_53));
-auto map3 = make_unique<Map>(std::move(join10), std::move(expr3), "o_year_71", TypeEnum::Integer);
-IU* o_year_71 = map3->getIU("o_year_71");
-auto expr4 = makeCallExp("std::minus()", makeCallExp("std::multiplies()", make_unique<IUExp>(l_extendedprice_27), makeCallExp("std::minus()", make_unique<ConstExp<double>>(1.000000), make_unique<IUExp>(l_discount_28))), makeCallExp("std::multiplies()", make_unique<IUExp>(ps_supplycost_44), make_unique<IUExp>(l_quantity_26)));
-auto map4 = make_unique<Map>(std::move(map3), std::move(expr4), "sum_amount__72input", TypeEnum::Double);
-IU* sum_amount__72input = map4->getIU("sum_amount__72input");
-auto gb11 = make_unique<Aggregation>(std::move(map4), IUSet({n_name_70, o_year_71}));
-gb11->addAggregate(make_unique<SumAggregate>("sum_amount__72", sum_amount__72input));
-IU* sum_amount__72 = gb11->getIU("sum_amount__72");
-auto sort12 = make_unique<Sort>(std::move(gb11), vector<IU*>{n_name_70, o_year_71}, std::vector<bool>{false, true});
-IU* nation = n_name_70;
-IU* o_year = o_year_71;
-IU* sum_profit = sum_amount__72;
-produce(std::move(sort12), std::vector<IU*>{nation, o_year, sum_profit}, std::vector<std::string>{"nation","o_year","sum_profit"}, make_unique<PrintTupleSink>());
-return 0;
+
+int main(int argc, char* argv[]) {
+   // ------------------------------------------------------------
+   // TPC-H Query 5; should return the following on sf1 according to umbra:
+   // INDONESIA 55502041.1697
+   // VIETNAM 55295086.9967
+   // CHINA 53724494.2566
+   // INDIA 52035512.0002
+   // JAPAN 45410175.6954
+   // ------------------------------------------------------------
+   // select
+   //       n_name,
+   //       sum(l_extendedprice * (1 - l_discount)) as revenue
+   // from
+   //       customer,
+   //       orders,
+   //       lineitem,
+   //       supplier,
+   //       nation,
+   //       region
+   // where
+   //       c_custkey = o_custkey
+   //       and l_orderkey = o_orderkey
+   //       and l_suppkey = s_suppkey
+   //       and c_nationkey = s_nationkey
+   //       and s_nationkey = n_nationkey
+   //       and n_regionkey = r_regionkey
+   //       and r_name = 'ASIA'
+   //       and o_orderdate >= date '1994-01-01'
+   //       and o_orderdate < date '1994-01-01' + interval '1' year
+   // group by
+   //       n_name
+   // order by
+   //       revenue desc
+   // ------------------------------------------------------------
+   {
+      auto r = make_unique<Scan>("region");
+      IU* r_regionkey = r->getIU("r_regionkey");
+      IU* r_name = r->getIU("r_name");
+      auto r_sel =
+          make_unique<Selection>(std::move(r), makeCallExp("std::equal_to()", make_unique<IUExp>(r_name),
+                                                           make_unique<ConstExp<StringView>>("ASIA")));
+
+      auto n = make_unique<Scan>("nation");
+      IU* n_nationkey = n->getIU("n_nationkey");
+      IU* n_regionkey = n->getIU("n_regionkey");
+      IU* n_name = n->getIU("n_name");
+      auto join1 = make_unique<InnerJoin>(std::move(r_sel), std::move(n), vector<IU*>{r_regionkey}, vector<IU*>{n_regionkey}, nullptr);
+
+      auto c = make_unique<Scan>("customer");
+      IU* c_custkey = c->getIU("c_custkey");
+      IU* c_nationkey = c->getIU("c_nationkey");
+      auto join2 = make_unique<InnerJoin>(std::move(join1), std::move(c), vector<IU*>{n_nationkey}, vector<IU*>{c_nationkey}, nullptr);
+
+      auto o = make_unique<Scan>("orders");
+      auto o_orderkey = o->getIU("o_orderkey");
+      auto o_custkey = o->getIU("o_custkey");
+      auto o_orderdate = o->getIU("o_orderdate");
+      auto lowerBoundExp = makeCallExp("std::greater_equal()", make_unique<IUExp>(o_orderdate), make_unique<ConstExp<int32_t>>(2449354));
+      auto upperBoundExp = makeCallExp("std::less_equal()", make_unique<IUExp>(o_orderdate), make_unique<ConstExp<int32_t>>(2449718));
+      auto o_sel = make_unique<Selection>(std::move(o), makeCallExp("std::logical_and()", std::move(lowerBoundExp), std::move(upperBoundExp)));
+      auto join3 = make_unique<InnerJoin>(std::move(join2), std::move(o_sel), vector<IU*>{c_custkey}, vector<IU*>{o_custkey}, nullptr);
+
+      auto l = make_unique<Scan>("lineitem");
+      auto l_orderkey = l->getIU("l_orderkey");
+      auto l_suppkey = l->getIU("l_suppkey");
+      auto l_extendedprice = l->getIU("l_extendedprice");
+      auto l_discount = l->getIU("l_discount");
+      auto join4 = make_unique<InnerJoin>(std::move(join3), std::move(l), vector<IU*>{o_orderkey}, vector<IU*>{l_orderkey}, nullptr);
+
+      auto s = make_unique<Scan>("supplier");
+      auto s_suppkey = s->getIU("s_suppkey");
+      auto s_nationkey = s->getIU("s_nationkey");
+      auto join5 = make_unique<InnerJoin>(std::move(s), std::move(join4), vector<IU*>{s_suppkey, s_nationkey}, vector<IU*>{l_suppkey, n_nationkey}, nullptr);
+
+      auto discountPriceExp = makeCallExp("std::multiplies()", make_unique<IUExp>(l_extendedprice), makeCallExp("std::minus()", make_unique<ConstExp<double>>(1.0), make_unique<IUExp>(l_discount)));
+      auto discountPriceMap = make_unique<Map>(std::move(join5), std::move(discountPriceExp), "revenue", TypeEnum::Double);
+      auto discountPrice = discountPriceMap->getIU("revenue");
+
+      auto gb = make_unique<Aggregation>(std::move(discountPriceMap), IUSet({n_name}));
+      gb->addAggregate(make_unique<SumAggregate>("revenue", discountPrice));
+      auto revenue = gb->getIU("revenue");
+
+      auto sort = make_unique<Sort>(std::move(gb), vector<IU*>{revenue}, vector<bool>{true});
+      produce(std::move(sort), std::vector<IU*>{n_name, revenue}, std::vector<std::string>{"nation","o_year","sum_profit"}, make_unique<PrintTupleSink>());
+   }
+   return 0;
 }

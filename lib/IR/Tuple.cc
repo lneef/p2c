@@ -1,6 +1,7 @@
 #include "IR/Tuple.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "IR/Types.h"
+
 #include <llvm/Support/raw_ostream.h>
 
 namespace p2cllvm {

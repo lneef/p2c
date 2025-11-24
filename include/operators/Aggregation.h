@@ -1,17 +1,21 @@
 #pragma once
+
 #include "IR/Binop.h"
 #include "IR/Builder.h"
 #include "IR/Defs.h"
 #include "IR/Hash.h"
 #include "IR/Tuple.h"
 #include "IR/Types.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "operators/OperatorContext.h"
 #include "operators/Operator.h"
 #include "runtime/Runtime.h"
 #include "runtime/ThreadLocalContext.h"
 #include "runtime/TypeInfo.h"
+
 #include <cassert>
+#include <memory>
+#include <string_view>
 #include <llvm/ADT/SmallVector.h>
 #include <llvm/IR/BasicBlock.h>
 #include <llvm/IR/Constants.h>
@@ -20,8 +24,6 @@
 #include <llvm/IR/Instructions.h>
 #include <llvm/IR/Type.h>
 #include <llvm/IR/Value.h>
-#include <memory>
-#include <string_view>
 namespace p2cllvm {
 struct Aggregate {
   IU *input;

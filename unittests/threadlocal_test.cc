@@ -1,12 +1,12 @@
-#include <algorithm>
-#include <gtest/gtest.h>
-#include <thread>
-#include <barrier>
-
 #include "operators/Aggregation.h"
 #include "runtime/Runtime.h"
 #include "runtime/ThreadLocal.h"
 #include "runtime/ThreadLocalContext.h"
+
+#include <algorithm>
+#include <gtest/gtest.h>
+#include <thread>
+#include <barrier>
 
 TEST(ThreadLocalTest, Basic) {
   struct TestStruct {

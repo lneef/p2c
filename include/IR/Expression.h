@@ -4,7 +4,7 @@
 #include "IR/Binop.h"
 #include "IR/Defs.h"
 #include "Types.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "operators/Iu.h"
 #include "runtime/Runtime.h"
 
@@ -12,6 +12,9 @@
 #include <bit>
 #include <cassert>
 #include <cstddef>
+#include <memory>
+#include <stdexcept>
+#include <string_view>
 #include <llvm/IR/BasicBlock.h>
 #include <llvm/IR/Constants.h>
 #include <llvm/IR/DerivedTypes.h>
@@ -19,9 +22,6 @@
 #include <llvm/IR/Instructions.h>
 #include <llvm/IR/Value.h>
 #include <llvm/Support/Casting.h>
-#include <memory>
-#include <stdexcept>
-#include <string_view>
 
 namespace p2cllvm {
 static inline constexpr bool checkPrecedence(Type &t1, Type &t2) {

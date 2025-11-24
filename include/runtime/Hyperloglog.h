@@ -2,7 +2,8 @@
 
 #include "IR/Defs.h"
 #include "IR/Types.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
+
 #include <cstdint>
 #include <cassert>
 #include <cstddef>

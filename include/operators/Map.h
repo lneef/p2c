@@ -1,9 +1,11 @@
 #pragma once
+
 #include "IR/Builder.h"
 #include "IR/Expression.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "operators/Iu.h"
 #include "operators/Operator.h"
+
 #include <memory>
 #include <string_view>
 

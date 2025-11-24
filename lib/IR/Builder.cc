@@ -1,16 +1,3 @@
-#include <llvm/IR/BasicBlock.h>
-#include <llvm/IR/Constants.h>
-#include <llvm/IR/DerivedTypes.h>
-#include <llvm/IR/Function.h>
-#include <llvm/IR/Instruction.h>
-#include <llvm/IR/Instructions.h>
-#include <llvm/IR/Intrinsics.h>
-#include <llvm/IR/Type.h>
-#include <llvm/IR/Value.h>
-
-#include <cassert>
-#include <cstdint>
-
 #include "IR/Binop.h"
 #include "IR/Builder.h"
 #include "IR/ColTypes.h"
@@ -20,10 +7,21 @@
 #include "IR/Scope.h"
 #include "IR/SymbolManager.h"
 #include "IR/Types.h"
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "runtime/Runtime.h"
-#include "runtime/hyperloglog.h"
-#include "runtime/tuplebuffer.h"
+#include "runtime/Hyperloglog.h"
+#include "runtime/Tuplebuffer.h"
+
+#include <cassert>
+#include <llvm/IR/BasicBlock.h>
+#include <llvm/IR/Constants.h>
+#include <llvm/IR/DerivedTypes.h>
+#include <llvm/IR/Function.h>
+#include <llvm/IR/Instruction.h>
+#include <llvm/IR/Instructions.h>
+#include <llvm/IR/Intrinsics.h>
+#include <llvm/IR/Type.h>
+#include <llvm/IR/Value.h>
 
 namespace p2cllvm {
 

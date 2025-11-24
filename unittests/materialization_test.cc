@@ -1,9 +1,9 @@
+#include "runtime/Runtime.h"
+#include "runtime/Tuplebuffer.h"
+
 #include <cstdint>
 #include <gtest/gtest.h>
 #include <random>
-
-#include "runtime/Runtime.h"
-#include "runtime/tuplebuffer.h"
 
 using namespace p2cllvm;
 

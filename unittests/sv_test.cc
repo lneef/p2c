@@ -1,6 +1,7 @@
-#include <gtest/gtest.h>
-#include "internal/basetypes.h"
+#include "internal/BaseTypes.h"
 #include "runtime/Runtime.h"
+
+#include <gtest/gtest.h>
 using namespace p2cllvm;
 
 TEST(STRING, EQUAL){
